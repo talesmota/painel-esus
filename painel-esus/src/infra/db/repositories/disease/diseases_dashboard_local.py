@@ -125,6 +125,7 @@ class DiseasesDashboardLocalRepository(DiseasesDashboardRepositoryInterface):
         procedures = age_group.parse_date(procedures)
         hypertension = exam_disease
         result = hypertension.check_presence(procedures)
+        result = list(filter(lambda x: x['nome'] is not None, result))
         page_ini = (page-1)*20
         page_end = page*20
         return result[page_ini:page_end]

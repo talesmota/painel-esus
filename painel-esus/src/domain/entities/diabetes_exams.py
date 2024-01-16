@@ -6,6 +6,9 @@ from src.domain.entities.exams import (BloodCount, BloodGlucose,
                                        TotalCholesterol, GlycatedHemoglobin,
                                        Urine, Retinography)
 
+from src.domain.entities.complications import (
+    HeartAttack, BrainStroke, KidneyDisease, CoronaryDisease, VascularBrainDisease
+)
 from .disease_exams import DiseaseExams
 
 
@@ -59,6 +62,16 @@ class DiabetesExams(DiseaseExams):
             })
         return response
 
+class DiabetesExamsList(DiabetesExams):
+    def __init__(self):
+        self._res = []
+        self.list = [
+            HeartAttack(),
+            BrainStroke(),
+            KidneyDisease(),
+            CoronaryDisease(),
+            VascularBrainDisease(),
+        ]
 
 class IndividualDiabetesExams(DiseaseExams):
     def check_presence(self, df) -> List:
@@ -71,7 +84,7 @@ class IndividualDiabetesExams(DiseaseExams):
                     'idade': row['idade'],
                     'requested': set(),
                     'evaluated': set(),
-                    'exams_list': DiabetesExams()
+                    'exams_list': DiabetesExamsList()
                 }
             tipo = row['tipo'].strip()
             codigo = row['codigo'].strip()

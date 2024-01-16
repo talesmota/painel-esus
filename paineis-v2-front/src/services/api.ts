@@ -1,9 +1,12 @@
 import axios, { AxiosError, AxiosRequestConfig } from 'axios'
 import { getUserLocalStorage } from '../context/AuthProvider/util';
 
+const URL = window.location.host;
+const PROTOCOL = window.location.protocol;
 export const Api = axios.create({
     // baseURL: "https://backend-ouropreto.painelsaude.info/v1/"
-    baseURL: "http://localhost:5001/v1/"
+    // baseURL: "http://localhost:5001/v1/"
+    baseURL: `${PROTOCOL}//${URL}/v1/`
 });
 
 // Request interceptor

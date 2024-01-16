@@ -6,6 +6,9 @@ from src.domain.entities.exams import (ECG, BloodCount, BloodGlucose,
                                        SodiumPotassium, TotalCholesterol,
                                        Urine)
 
+from src.domain.entities.complications import (
+    HeartAttack, BrainStroke, KidneyDisease, CoronaryDisease, VascularBrainDisease
+)
 from .disease_exams import DiseaseExams
 
 
@@ -59,7 +62,19 @@ class HypertensionExams(DiseaseExams):
         return response
 
 
+class HypertensionExamsList(HypertensionExams):
+    def __init__(self):
+        self._res = []
+        self.list = [
+            HeartAttack(),
+            BrainStroke(),
+            KidneyDisease(),
+            CoronaryDisease(),
+            VascularBrainDisease(),
+        ]
+
 class IndividualHypertensionExams(DiseaseExams):
+        
     def check_presence(self, df) -> List:
         def __parse(row):
             atd_id = row['co_seq_fat_atd_ind']
@@ -70,7 +85,7 @@ class IndividualHypertensionExams(DiseaseExams):
                     'idade': row['idade'],
                     'requested': set(),
                     'evaluated': set(),
-                    'exams_list': HypertensionExams()
+                    'exams_list': HypertensionExamsList()
                 }
             tipo = row['tipo'].strip()
             codigo = row['codigo'].strip()
@@ -102,3 +117,4 @@ class IndividualHypertensionExams(DiseaseExams):
             response.append(partial_resp)
 
         return response
+

@@ -17,6 +17,7 @@ from src.infra.db.settings.connection import DBConnectionHandler
 from .sqls import (ATENDIMENTO_INDIVIDUAL_CID_CIAPS, CIDADAO_PEC_VIVO,
                    MAX_DT_ATENDIMENTO_ATENDIMENTO_INDIVIDUAL)
 
+from src.env.conf import env
 
 class DemographicsInfoRepository(DemographicsInfoRepositoryInterface):
 
@@ -187,6 +188,7 @@ class DemographicsInfoRepository(DemographicsInfoRepositoryInterface):
 
         response = {
             'total': int(data_frame.shape[0]),
+            'ibgePopulation': env.get('POPULATION', '-'),
             'ageGroups': age_groups,
             'locationArea': {
                 'rural': int(

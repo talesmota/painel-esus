@@ -118,6 +118,14 @@ function App() {
                 }
               />
               <Route
+                path="/diabeticos/:id"
+                element={
+                  <ProtectedLayout>
+                    <DiabeticosList />
+                  </ProtectedLayout>
+                }
+              />
+              <Route
                 path="/hipertensao"
                 element={
                   <ProtectedLayout>
@@ -133,6 +141,14 @@ function App() {
                 } />
               <Route
                 path="/hipertensos"
+                element={
+                  <ProtectedLayout>
+                    <HipertensosList />
+                  </ProtectedLayout>
+                }
+              />
+              <Route
+                path="/hipertensos/:id"
                 element={
                   <ProtectedLayout>
                     <HipertensosList />

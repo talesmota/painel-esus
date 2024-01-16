@@ -1,7 +1,7 @@
 # pylint: disable=logging-too-many-args
 # pylint: disable=line-too-long
-
-import logging
+from src.env import env
+from src.errors.logging import logging
 import urllib.parse
 
 import requests
@@ -12,14 +12,13 @@ from src.domain.entities.user_payload import UserPayload
 
 from .queries.query_sessao import QUERY_SESSAO
 
-logging.basicConfig(level=logging.DEBUG)
 
 
 class LoginBridgeRepository(LoginRepositoryInterface):
 
     def check_credentials(self, username: str, password: str) -> UserPayload:
         session = requests.Session()
-        url = "https://dev.pec.bridge.ufsc.br/api/graphql"
+        url = env.get("BRIDGE_LOGIN_URL", "")
         payload = "{\"query\":\"mutation mutation_login {\\n  login(input: {username: \\\""+username + \
             "\\\", password: \\\""+password + \
             "\\\", force: true}) {\\n    success\\n  }\\n}\",\"variables\":{}}"

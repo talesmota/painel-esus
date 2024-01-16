@@ -1,17 +1,18 @@
+import os
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-
+from src.env.conf import env
 
 class DBConnectionHandler:
 
     def __init__(self) -> None:
         self.__connection_string = "{}://{}:{}@{}:{}/{}".format(
             'postgresql',
-            'susopolis_user',
-            'R6Hi1J4HMkInYmvQ6iMdId8J2Lz7PP',
-            'paineisirece.ckebriuhritw.sa-east-1.rds.amazonaws.com',
-            '5432',
-            'postgres'
+            env.get('DB_USER', '-'),
+            env.get('DB_PASSWORD', '-'),
+            env.get('DB_HOST', '-'),
+            env.get('DB_PORT', '-'),
+            env.get('DB_DATABASE', '-')
         )
         self.__engine = self.__create_database_engine()
         self.session = None
