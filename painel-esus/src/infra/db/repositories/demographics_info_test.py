@@ -2,13 +2,16 @@
 # pylint: disable=unused-import
 # pylint: disable=redefined-outer-name
 # pylint: disable=E0401
+import math
 import os
 from pathlib import Path
 from typing import Dict
 
 import pandas as pd
+import polars as pl
 import pytest
 from pandas import DataFrame
+from sqlalchemy import create_engine
 from src.data.use_cases.tests.data_frame_mocks.atendimento_individual_df import atendimento_individual_df
 from src.data.use_cases.tests.data_frame_mocks.atendimento_individual_df import atendimento_individual_df_empty
 from src.data.use_cases.tests.data_frame_mocks.atendimento_individual_df import atendimento_individual_df_no_rurals
@@ -22,6 +25,12 @@ from src.domain.entities.hypertension import Hypertension
 from src.domain.entities.pregnancy import Pregnants
 from src.env.conf import env
 from src.errors import InvalidArgument
+from src.infra.create_base.create_local_database import CreateLocalDataBase
+from src.infra.db.repositories.sqls.listagem_fci import LISTAGEM_FCI
+from src.infra.db.repositories.sqls.listagem_fci import LISTAGEM_FCI_COUNT
+from src.infra.db.settings.connection import DBConnectionHandler
+from src.infra.db.settings.connection_local import \
+    DBConnectionHandler as LocalDBConnectionHandler
 
 from .demographics_info import DemographicsInfoRepository
 
@@ -286,3 +295,102 @@ def test_path_csv():
     path = Path(path)
     path = os.path.join(path, 'ibge.csv')
     print(path)
+
+
+def test_load_db():
+    with DBConnectionHandler() as db:
+
+        sum_ = 0
+        # total = pl.read_database(
+        #     query=f'{LISTAGEM_FCI_COUNT};',
+        #     connection=db.get_engine(),
+        # )
+        # total = total.with_columns(pl.col('qtd')).item(0, 0)
+        # # assert total == 6803
+        schema_overrides = {
+            "id_cidadao_pec": pl.UInt64(),
+            "co_cidadao": pl.String(),
+            "nu_cns": pl.String(),
+            "nu_cpf": pl.String(),
+            "no_cidadao": pl.String(),
+            "co_dim_tempo_nascimento": pl.Date(),
+            "no_social_cidadao": pl.String(),
+            "co_dim_unidade_saude": pl.UInt64(),
+            "co_dim_sexo": pl.UInt64(),
+            "sg_sexo": pl.String(),
+            "co_dim_identidade_genero": pl.UInt64(),
+            "ds_raca_cor": pl.String(),
+            "co_dim_tipo_localizacao": pl.UInt64(),
+            "no_mae_cidadao": pl.String(),
+            "no_pai_cidadao": pl.String(),
+            "no_profissional": pl.String(),
+            "dt_obito": pl.Date(),
+            "nu_declaracao_obito": pl.String(),
+            "idade": pl.UInt64(),
+            "total_meses": pl.UInt64(),
+            "total_dias": pl.UInt64()
+        }
+        for df in pl.read_database(
+            query=f'{LISTAGEM_FCI};',
+            connection=db.get_engine(),
+            schema_overrides=schema_overrides,
+            iter_batches=True,
+            batch_size=1000,
+        ):
+            sum_ += df.shape[0]
+            with LocalDBConnectionHandler() as db_local:
+                for i in schema_overrides.items():
+                    if isinstance(i[1], pl.Date):
+                        df = df.with_columns(
+                            pl.col(f'{i[0]}').dt.strftime('%Y-%m-%d')
+                        )
+
+                df.write_database(
+                    table_name="demografico",
+                    connection=db_local.get_engine(),
+                    if_table_exists='append',
+                    engine='sqlalchemy'
+                )
+        # assert total == sum_
+
+
+def test_load_db_class():
+    schema_overrides = {
+        "id_cidadao_pec": pl.UInt64(),
+        "co_cidadao": pl.String(),
+        "nu_cns": pl.String(),
+        "nu_cpf": pl.String(),
+        "no_cidadao": pl.String(),
+        "co_dim_tempo_nascimento": pl.Date(),
+        "no_social_cidadao": pl.String(),
+        "co_dim_unidade_saude": pl.UInt64(),
+        "co_dim_sexo": pl.UInt64(),
+        "sg_sexo": pl.String(),
+        "co_dim_identidade_genero": pl.UInt64(),
+        "ds_raca_cor": pl.String(),
+        "co_dim_tipo_localizacao": pl.UInt64(),
+        "no_mae_cidadao": pl.String(),
+        "no_pai_cidadao": pl.String(),
+        "no_profissional": pl.String(),
+        "dt_obito": pl.Date(),
+        "nu_declaracao_obito": pl.String(),
+        "idade": pl.UInt64(),
+        "total_meses": pl.UInt64(),
+        "total_dias": pl.UInt64()
+    }
+    sql = LISTAGEM_FCI
+
+    create_local_database = CreateLocalDataBase(
+        DBConnectionHandler(),
+        LocalDBConnectionHandler()
+    )
+    create_local_database.create_table(
+        name="demograficos", sql=sql, schema_overrides=schema_overrides)
+
+
+def test_drop_table():
+    create_local_database = CreateLocalDataBase(
+        DBConnectionHandler(),
+        LocalDBConnectionHandler()
+    )
+    create_local_database.drop_table('demografico')

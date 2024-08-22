@@ -2,7 +2,6 @@
 import os
 
 import blueprint_decr
-from dotenv import dotenv_values
 from flask import Flask
 from flask import send_from_directory
 from flask_cors import CORS
@@ -31,8 +30,7 @@ from src.main.server.decorators.token_required import token_required
 app = Flask(__name__)
 app.config['JSON_SORT_KEYS'] = False
 # tell Flask to use the above defined config
-config = dotenv_values(".env")
-print('ENV ', config["ENV"])
+config = env
 
 if config["ENV"] == "instalador":
     static_folder = os.path.join(os.getcwd(), 'static-files')

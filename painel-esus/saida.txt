@@ -1,0 +1,205 @@
+{
+  "total": 6803,
+  "ibgePopulation": "6.877",
+  "ageGroups": {
+    "Masculino": {
+      "+80 anos": {
+        "Rural": 51,
+        "Urbano": 21,
+        "Nao Informado": 34
+      },
+      "75 a 79 anos": {
+        "Rural": 37,
+        "Urbano": 24,
+        "Nao Informado": 25
+      },
+      "70 a 74 anos": {
+        "Rural": 43,
+        "Urbano": 37,
+        "Nao Informado": 28
+      },
+      "65 a 69 anos": {
+        "Rural": 42,
+        "Urbano": 36,
+        "Nao Informado": 37
+      },
+      "60 a 64 anos": {
+        "Rural": 45,
+        "Urbano": 50,
+        "Nao Informado": 64
+      },
+      "55 a 59 anos": {
+        "Rural": 58,
+        "Urbano": 59,
+        "Nao Informado": 74
+      },
+      "50 a 54 anos": {
+        "Rural": 69,
+        "Urbano": 59,
+        "Nao Informado": 66
+      },
+      "45 a 49 anos": {
+        "Rural": 73,
+        "Urbano": 67,
+        "Nao Informado": 103
+      },
+      "40 a 44 anos": {
+        "Rural": 67,
+        "Urbano": 78,
+        "Nao Informado": 101
+      },
+      "35 a 39 anos": {
+        "Rural": 65,
+        "Urbano": 75,
+        "Nao Informado": 111
+      },
+      "30 a 34 anos": {
+        "Rural": 43,
+        "Urbano": 38,
+        "Nao Informado": 90
+      },
+      "25 a 29 anos": {
+        "Rural": 38,
+        "Urbano": 54,
+        "Nao Informado": 123
+      },
+      "20 a 24 anos": {
+        "Rural": 17,
+        "Urbano": 30,
+        "Nao Informado": 154
+      },
+      "15 a 19 anos": {
+        "Rural": 4,
+        "Urbano": 6,
+        "Nao Informado": 283
+      },
+      "10 a 14 anos": {
+        "Rural": 0,
+        "Urbano": 0,
+        "Nao Informado": 275
+      },
+      "5 a 9 anos": {
+        "Rural": 0,
+        "Urbano": 0,
+        "Nao Informado": 255
+      },
+      "0 a 4 anos": {
+        "Rural": 0,
+        "Urbano": 0,
+        "Nao Informado": 240
+      }
+    },
+    "Feminino": {
+      "+80 anos": {
+        "Rural": 38,
+        "Urbano": 61,
+        "Nao Informado": 41
+      },
+      "75 a 79 anos": {
+        "Rural": 29,
+        "Urbano": 45,
+        "Nao Informado": 29
+      },
+      "70 a 74 anos": {
+        "Rural": 42,
+        "Urbano": 65,
+        "Nao Informado": 44
+      },
+      "65 a 69 anos": {
+        "Rural": 27,
+        "Urbano": 43,
+        "Nao Informado": 53
+      },
+      "60 a 64 anos": {
+        "Rural": 58,
+        "Urbano": 79,
+        "Nao Informado": 60
+      },
+      "55 a 59 anos": {
+        "Rural": 55,
+        "Urbano": 71,
+        "Nao Informado": 64
+      },
+      "50 a 54 anos": {
+        "Rural": 53,
+        "Urbano": 72,
+        "Nao Informado": 78
+      },
+      "45 a 49 anos": {
+        "Rural": 60,
+        "Urbano": 98,
+        "Nao Informado": 83
+      },
+      "40 a 44 anos": {
+        "Rural": 44,
+        "Urbano": 92,
+        "Nao Informado": 106
+      },
+      "35 a 39 anos": {
+        "Rural": 65,
+        "Urbano": 105,
+        "Nao Informado": 95
+      },
+      "30 a 34 anos": {
+        "Rural": 33,
+        "Urbano": 59,
+        "Nao Informado": 84
+      },
+      "25 a 29 anos": {
+        "Rural": 34,
+        "Urbano": 84,
+        "Nao Informado": 129
+      },
+      "20 a 24 anos": {
+        "Rural": 30,
+        "Urbano": 61,
+        "Nao Informado": 140
+      },
+      "15 a 19 anos": {
+        "Rural": 7,
+        "Urbano": 15,
+        "Nao Informado": 228
+      },
+      "10 a 14 anos": {
+        "Rural": 0,
+        "Urbano": 1,
+        "Nao Informado": 254
+      },
+      "5 a 9 anos": {
+        "Rural": 0,
+        "Urbano": 0,
+        "Nao Informado": 242
+      },
+      "0 a 4 anos": {
+        "Rural": 0,
+        "Urbano": 0,
+        "Nao Informado": 198
+      }
+    }
+  },
+  "locationArea": {
+    "rural": 1227,
+    "urbano": 1585,
+    "nao_definido": 3991
+  },
+  "gender": {
+    "feminino": 3454,
+    "masculino": 3349
+  },
+  "indicators": {
+    "diabetes": {
+      "rural": 89,
+      "urbano": 108,
+      "nao_informado": 129
+    },
+    "gestantes": {
+      "rural": 127,
+      "urbano": 255
+    },
+    "hipertensao": {
+      "rural": 263,
+      "urbano": 299,
+      "nao_informado": 351
+    }
+  }
+}

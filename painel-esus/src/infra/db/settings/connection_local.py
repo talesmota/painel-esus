@@ -3,11 +3,11 @@ from pathlib import Path
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from src.env import env
-from src.errors.logging import logging
+
+from .db_connection_handler_interface import DBConnectionHandlerInterface
 
 
-class DBConnectionHandler:
+class DBConnectionHandler(DBConnectionHandlerInterface):
 
     def __init__(self) -> None:
         if os.getenv("ENV") == "instalador":
@@ -17,12 +17,11 @@ class DBConnectionHandler:
             path = Path(path.split('/painel-esus')[0])
             path = os.path.join(path, 'painel_esus.db')
             path = os.path.relpath(path)
-        print("PATH: ", path)
         self.__connection_string = f"sqlite:///{path}"
-        self.__engine = self.__create_database_engine()
+        self.__engine = self._create_database_engine()
         self.session = None
 
-    def __create_database_engine(self):
+    def _create_database_engine(self):
         engine = create_engine(self.__connection_string)
         return engine
 

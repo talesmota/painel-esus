@@ -1,3 +1,5 @@
+ATENDIMENTO_INDIVIDUAL_CID_CIAPS_LOCAL = "select * from atendimento_individual_cid_ciaps "
+
 ATENDIMENTO_INDIVIDUAL_CID_CIAPS = """
 with atd_individual_filtro_ciaps as (
     select

@@ -1,4 +1,4 @@
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from apscheduler.schedulers.background import BackgroundScheduler
 from src.data.use_cases.create_bases.create_cache import CreateCacheUseCase
@@ -6,6 +6,7 @@ from src.env.conf import env
 from src.errors.logging import logging
 from src.presentations.controllers.create_bases.create_base_controller import \
     CreateBasesController
+# from datetime import timedelta
 
 
 def generate_base_scheduled(scheduler: BackgroundScheduler):
@@ -43,6 +44,6 @@ def generate_base_scheduled(scheduler: BackgroundScheduler):
     )
     init()
 
-    now = datetime.now()
-    now_plus_10 = now + timedelta(minutes=10)
-    scheduler.add_job(cache_init, 'date', run_date=now_plus_10)
+    # now = datetime.now()
+    # now_plus_10 = now + timedelta(minutes=10)
+    # scheduler.add_job(cache_init, 'date', run_date=now_plus_10)

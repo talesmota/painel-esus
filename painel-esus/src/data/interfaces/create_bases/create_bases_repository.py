@@ -1,7 +1,11 @@
-from abc import ABC, abstractmethod
+from abc import ABC
+from abc import abstractmethod
 
 
 class CreateBasesRepositoryInterface(ABC):
+
+    @abstractmethod
+    def get_base(self): pass
 
     @abstractmethod
     def create_base(self): pass

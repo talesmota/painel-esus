@@ -5,8 +5,10 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from src.env.conf import env
 
+from .db_connection_handler_interface import DBConnectionHandlerInterface
 
-class DBConnectionHandler:
+
+class DBConnectionHandler(DBConnectionHandlerInterface):
 
     def __init__(
         self,
@@ -26,12 +28,13 @@ class DBConnectionHandler:
             ),
             env.get("DB_HOST", "-") if db_host is None else db_host.strip(),
             env.get("DB_PORT", "-") if db_port is None else db_port.strip(),
-            env.get("DB_DATABASE", "-") if db_database is None else db_database.strip(),
+            env.get("DB_DATABASE",
+                    "-") if db_database is None else db_database.strip(),
         )
-        self.__engine = self.__create_database_engine()
+        self.__engine = self._create_database_engine()
         self.session = None
 
-    def __create_database_engine(self):
+    def _create_database_engine(self):
         engine = create_engine(self.__connection_string)
         return engine
 

@@ -1,6 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
+
 class DBConnectionHandler:
 
     def __init__(self) -> None:
@@ -12,10 +13,10 @@ class DBConnectionHandler:
             '5432',
             'esus'
         )
-        self.__engine = self.__create_database_engine()
+        self.__engine = self._create_database_engine()
         self.session = None
 
-    def __create_database_engine(self):
+    def _create_database_engine(self):
         engine = create_engine(self.__connection_string)
         return engine
 

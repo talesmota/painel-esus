@@ -1,6 +1,7 @@
 # pylint: disable=E0401,W0012,R0915
 # pylint: disable=E0501
 # pylint: disable=E0401,C0301,W0612,W0611,R0912
+import json
 import os
 from datetime import date
 from datetime import datetime
@@ -20,8 +21,11 @@ from src.errors import InvalidArgument
 from src.errors.logging import logging
 from src.infra.db.repositories.enuns.individual_cares import IndividualCare
 from src.infra.db.settings.connection import DBConnectionHandler
+from src.infra.db.settings.connection_local import \
+    DBConnectionHandler as LocalDBConnectionHandler
 
-from .sqls import ATENDIMENTO_INDIVIDUAL_CID_CIAPS
+from .sqls import ATENDIMENTO_INDIVIDUAL_CID_CIAPS_LOCAL
+from .sqls import LILSTAGEM_FCI_LOCAL
 from .sqls import LISTAGEM_FCI
 from .sqls import MAX_DT_ATENDIMENTO_ATENDIMENTO_INDIVIDUAL
 
@@ -374,36 +378,42 @@ class DemographicsInfoRepository(DemographicsInfoRepositoryInterface):
     def get_demographics_info(self, cnes: int = None) -> Dict:
         if cnes and not isinstance(cnes, int):
             raise InvalidArgument("CNES must be int")
+
         with DBConnectionHandler() as db_con:
             engine = db_con.get_engine()
+            max_date = pd.read_sql_query(
+                MAX_DT_ATENDIMENTO_ATENDIMENTO_INDIVIDUAL, con=engine
+            )
 
-            # cidadao_pec = pd.read_sql_query(CIDADAO_PEC_VIVO, con=engine)
-            listagem_fci = LISTAGEM_FCI
+        with LocalDBConnectionHandler() as db_con:
+            engine = db_con.get_engine()
+            listagem_fci = LILSTAGEM_FCI_LOCAL
             if cnes:
-                listagem_fci += f"""
-    and t3.co_dim_unidade_saude = {cnes};
-                """
+                if "where" in listagem_fci:
+                    listagem_fci += f"""
+            and co_dim_unidade_saude = {cnes};
+                    """
+                else:
+                    listagem_fci += f""" where 
+             co_dim_unidade_saude = {cnes};
+                    """
             else:
                 listagem_fci += ";"
 
             cidadao_pec = pd.read_sql_query(listagem_fci, con=engine)
 
-            max_date = pd.read_sql_query(
-                MAX_DT_ATENDIMENTO_ATENDIMENTO_INDIVIDUAL, con=engine
-            )
             max_date = str(max_date["max"].iloc[0])
-            sql = ATENDIMENTO_INDIVIDUAL_CID_CIAPS
-            # sql = LISTAGEM_FCI
+            sql = ATENDIMENTO_INDIVIDUAL_CID_CIAPS_LOCAL
             if cnes:
-                sql += f"""
-                     where
-                         atd.co_dim_unidade_saude = {cnes}
-                 """
-            # else:
-            #     sql += f"""
-            #         where
-            #             dt_registro between '{max_date}'::DATE - interval '12 month' and '{max_date}';
-            #     """
+                if "where" in sql:
+                    sql += f"""
+            and co_dim_unidade_saude = {cnes};
+                    """
+                else:
+                    sql += f""" where 
+             co_dim_unidade_saude = {cnes};
+                    """
+
             atendimento_individual = pd.read_sql_query(sql, con=engine)
 
             hypertension = Hypertension()
@@ -422,4 +432,5 @@ class DemographicsInfoRepository(DemographicsInfoRepositoryInterface):
                 gestantes=gestantes_df,
             )
 
-            return self.retrieve_demographics_info(cidadao_pec)
+            response = self.retrieve_demographics_info(cidadao_pec)
+            return response

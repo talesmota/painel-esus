@@ -2,21 +2,18 @@
 import os
 from pathlib import Path
 
-from src.data.use_cases.create_bases.create_bases_usecase import CreateBasesUseCase
+from src.data.use_cases.create_bases.create_bases_usecase import \
+    CreateBasesUseCase
 from src.env import env
 from src.errors.logging import logging
-from src.infra.create_base.create_diabetes_bases_repository import (
-    CreateDiabetesBasesRepository,
-)
-from src.infra.create_base.create_hypertension_bases_repository import (
-    CreateHypertensionBasesRepository,
-)
-from src.infra.create_base.create_oral_health_bases_repository import (
-    CreateOralHealthBasesRepository,
-)
-from src.infra.create_base.create_smoking_bases_repository import (
-    CreateSmokingBasesRepository,
-)
+from src.infra.create_base.create_diabetes_bases_repository import \
+    CreateDiabetesBasesRepository
+from src.infra.create_base.create_hypertension_bases_repository import \
+    CreateHypertensionBasesRepository
+from src.infra.create_base.create_oral_health_bases_repository import \
+    CreateOralHealthBasesRepository
+from src.infra.create_base.local.create_base_factory import \
+    CreateLocalDatabaseFactory
 
 
 class CreateBasesController:
@@ -32,10 +29,11 @@ class CreateBasesController:
         # os.remove(path)
         logging.info("Starting base generation")
         _list = [
+            CreateLocalDatabaseFactory.demographics_factory(),
+            CreateLocalDatabaseFactory.atendimento_individual_filtro_factory(),
             CreateDiabetesBasesRepository(),
             CreateHypertensionBasesRepository(),
             CreateOralHealthBasesRepository(),
-            # CreateSmokingBasesRepository()
         ]
         usecase = CreateBasesUseCase(bases_generators=_list)
         usecase.create_bases()
