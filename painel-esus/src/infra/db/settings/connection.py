@@ -31,6 +31,18 @@ class DBConnectionHandler(DBConnectionHandlerInterface):
             env.get("DB_DATABASE",
                     "-") if db_database is None else db_database.strip(),
         )
+        self.__dns_string = "dbname={} user={} password='{}' host={} port={}".format(
+            env.get("DB_DATABASE",
+                    "-") if db_database is None else db_database.strip(),
+            env.get("DB_USER", "-") if db_user is None else db_user.strip(),
+            (
+                (env.get("DB_PASSWORD", "-"))
+                if db_password is None
+                else quote_plus(db_password.strip())
+            ),
+            env.get("DB_HOST", "-") if db_host is None else db_host.strip(),
+            env.get("DB_PORT", "-") if db_port is None else db_port.strip(),
+        )
         self.__engine = self._create_database_engine()
         self.session = None
 
@@ -38,7 +50,7 @@ class DBConnectionHandler(DBConnectionHandlerInterface):
         engine = create_engine(self.__connection_string)
         return engine
 
-    def get_engine(self):
+    def     get_engine(self):
         return self.__engine
 
     def __enter__(self):
@@ -51,3 +63,6 @@ class DBConnectionHandler(DBConnectionHandlerInterface):
 
     def get_connection_str(self):
         return self.__connection_string
+
+    def get_dns_string(self):
+        return self.__dns_string

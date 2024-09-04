@@ -1,8 +1,9 @@
-from src.presentations.interfaces.controller_interface import \
-    ControllerInterface
 from src.data.interfaces.oral_health_dashboard_repository import \
     OralHealthDashboardRepositoryInterface
-from src.presentations.http_types import HttpRequest, HttpResponse
+from src.presentations.http_types import HttpRequest
+from src.presentations.http_types import HttpResponse
+from src.presentations.interfaces.controller_interface import \
+    ControllerInterface
 
 
 class OralHealthGetCaresByTypeOfServicesController(ControllerInterface):
@@ -15,7 +16,7 @@ class OralHealthGetCaresByTypeOfServicesController(ControllerInterface):
         if request.path_params and 'cnes' in request.path_params:
             cnes = int(request.path_params['cnes'])
 
-        response = self.__use_case.get_cares_by_type_of_services(cnes)
+        response = self.__use_case.get_extraction_procedures_proportion(cnes)
         response = response.rename(
             columns={'ds_tipo_consulta_odonto': 'label', 'total': 'value'})
         response.to_dict(orient='records')

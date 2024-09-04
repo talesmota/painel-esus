@@ -11,7 +11,7 @@ class CreateLocalDataBase:
         self.local_db_connection_handler = local_db_connection_handler
 
     def create_table(self, name, sql, schema_overrides):
-
+        
         with self.db_connection_handler as db:
             for df in pl.read_database(
                 query=sql,

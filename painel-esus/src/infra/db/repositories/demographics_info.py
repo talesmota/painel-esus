@@ -360,17 +360,17 @@ class DemographicsInfoRepository(DemographicsInfoRepositoryInterface):
                     hipertensao[
                         hipertensao["co_dim_tipo_localizacao"]
                         == IndividualCare.get_("rural")
-                    ]["valor"]
+                    ]["valor"].iloc[0]
                 ),
                 "urbano": int(
                     hipertensao[
                         hipertensao["co_dim_tipo_localizacao"]
                         == IndividualCare.get_("urbano")
-                    ]["valor"]
+                    ]["valor"].iloc[0]
                 ),
                 "nao_informado": int(
                     hipertensao[hipertensao["co_dim_tipo_localizacao"]
-                                == 1]["valor"]
+                                == 1]["valor"].iloc[0]
                 ),
             },
         }
