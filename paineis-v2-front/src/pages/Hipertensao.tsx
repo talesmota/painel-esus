@@ -448,7 +448,7 @@ export function Hipertensao() {
                 )}
               </div>
               <div className="mt-5">
-                <Button kind="primary" onClick={() => handleClick(5)}>
+                <Button kind="primary" onClick={() => handleClick(6)}>
                   Boas práticas na assistência a pessoas com hipertensão
                 </Button>
               </div>
@@ -457,6 +457,9 @@ export function Hipertensao() {
               <Typography.Subtitle>
                 Adultos com hipertensão de acordo com o IMC
               </Typography.Subtitle>
+              (IMC de pessoas com 20 anos ou mais e menores de 60 anos)
+              <br />
+              <br />
               <div className="d-flex flex-wrap flex-lg-nowrap justify-content-center">
                 {isLoadingHipertensaoFactors ? (
                   <div className="d-flex align-items-center justify-content-center">
