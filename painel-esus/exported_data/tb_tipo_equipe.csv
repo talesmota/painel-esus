@@ -1,0 +1,61 @@
+co_seq_tipo_equipe;sg_tipo_equipe;no_tipo_equipe;sg_tipo_equipe_filtro;no_tipo_equipe_filtro;nu_ms;ds_tp_equipe
+1;ESF;EQUIPE DE SAUDE DA FAMILIA;esf;equipe de saude da familia;01;AB
+2;ESFSB_M1;ESF COM SAUDE BUCAL - M I;esfsb_m1;esf com saude bucal - m i;02;AB
+3;ESFSB_M2;ESF COM SAUDE BUCAL - M II;esfsb_m2;esf com saude bucal - m ii;03;AB
+4;EACS;EQUIPE DE AGENTES COMUNITARIOS DE SAUDE;eacs;equipe de agentes comunitarios de saude;04;AB
+5;EPEN;EQUIPE DE AT. SAUDE SIST. PENITENCIARIO;epen;equipe de at. saude sist. penitenciario;05;AB
+6;ENASF1;EQUIPE DO NUCLEO DE APOIO A SAUDE DA FAMILIA 1;emasf1;equipe do nucleo de apoio a saude da familia 1;06;AB
+8;EMSI;EQ MULTIDISC AT BASICA SAUDE INDIGENA;emsi;eq multidisc at basica saude indigena;08;AB
+9;EMSIAL;EQ MULTIDISC AT BASICA SAUDE INDIGENA-AMAZONIA LEGAL;emsial;eq multidisc at basica saude indigena-amazonia legal;09;AB
+10;EACSSB_M1;EQ AGENTES COMUNITÁRIOS COM SAUDE BUCAL - MI;eacssb_m1;eq agentes comunitários com saude bucal - mi;10;AB
+11;EACSSB_M2;EQ AGENTES COMUNITÁRIOS COM SAUDE BUCAL - MII;eacssb_m2;eq agentes comunitários com saude bucal - mii;11;AB
+12;ESFR;EQUIPE DE SAUDE DA FAMILIA RIBEIRINHA;esfr;equipe de saude da familia ribeirinha;12;AB
+13;ESFRSB_MI;ESF RIBEIRINHA COM SAUDE BUCAL MI;esfrsb_mi;esf ribeirinha com saude bucal mi;13;AB
+14;ESFF;EQUIPE DE SAUDE DA FAMILIA FLUVIAL;esff;equipe de saude da familia fluvial;14;AB
+15;ESFFSB;ESF FLUVIAL COM SAUDE BUCAL;esffsb;esf fluvial com saude bucal;15;AB
+16;EAB1;EQUIPE DE ATENCAO BASICA TIPO I;eab1;equipe de atencao basica tipo i;16;AB
+17;EAB2;EQUIPE DE ATENCAO BASICA TIPO II;eab2;equipe de atencao basica tipo ii;17;AB
+18;EAB3;EQUIPE DE ATENCAO BASICA TIPO III ;eab3;equipe de atencao basica tipo iii;18;AB
+19;EAB1SB;EQUIPE DE ATENCAO BASICA TIPO I COM SAUDE BUCAL;eab1sb;equipe de atencao basica tipo i com saude bucal;19;AB
+20;EAB2SB;EQUIPE DE ATENCAO BASICA TIPO II COM SAUDE BUCAL;eab2sb;equipe de atencao basica tipo ii com saude bucal;20;AB
+21;EAB3SB;EQUIPE DE ATENCAO BASICA TIPO III COM SAUDE BUCAL;eab3sb;equipe de atencao basica tipo iii com saude bucal;21;AB
+22;EMAD;EQUIPE MULTIDISCIPLINAR DE ATENCAO DOMICILIAR;emad;equipe multidisciplinar de atencao domiciliar;22;EMAD
+23;EMAP;EQUIPE MULTIDISCIPLINAR DE APOIO;emap;equipe multidisciplinar de apoio;23;EMAP
+24;ESF1;ESTRATEGIA DE SAUDE DA FAMILIA TIPO I;esf1;estrategia de saude da familia tipo i;24;AB
+25;ESF1SB_M1;ESF TIPO I COM SAUDE BUCAL MODALIDADE I;esf1sb_m1;esf tipo i com saude bucal modalidade i;25;AB
+26;ESF1SB_M2;ESF TIPO I COM SAUDE BUCAL MODALIDADE II;esf1sb_m2;esf tipo i com saude bucal modalidade ii;26;AB
+27;ESF2;ESTRATEGIA DE SAUDE DA FAMILIA TIPO II;esf2;estrategia de saude da familia tipo ii;27;AB
+28;ESF2SB_M1;ESF TIPO II COM SAUDE BUCAL MODALIDADE I;esf2sb_m1;esf tipo ii com saude bucal modalidade i;28;AB
+29;ESF2SB_M2;ESF TIPO II COM SAUDE BUCAL MODALIDADE II;esf2sb_m2;esf tipo ii com saude bucal modalidade ii;29;AB
+30;ESF3;ESTRATEGIA DE SAUDE DA FAMILIA TIPO III;esf3;estrategia de saude da familia tipo iii;30;AB
+31;ESF3SB_M1;ESF TIPO III COM SAUDE BUCAL MODALIDADE I;esf3sb_m1;esf tipo iii com saude bucal modalidade i;31;AB
+32;ESF3SB_M2;ESF TIPO III COM SAUDE BUCAL MODALIDADE II;esf3sb_m2;esf tipo iii com saude bucal modalidade ii;32;AB
+33;ESF4;ESTRATEGIA DE SAUDE DA FAMILIA TIPO IV;esf4;estrategia de saude da familia tipo iv;33;AB
+34;ESF4SB_M1;ESF TIPO IV COM SAUDE BUCAL MODALIDADE I;esf4sb_m1;esf tipo iv com saude bucal modalidade i;34;AB
+35;ESF4SB_M2;ESF TIPO IV COM SAUDE BUCAL MODALIDADE II;esf4sb_m2;esf tipo iv com saude bucal modalidade ii;35;AB
+36;ESFTRANS;ESF TRANSITORIA;esftrans;esf transitoria;36;AB
+37;ESFTRANSSB_M1;ESF TRANSITORIA COM SAUDE BUCAL MI;esftranssb_m1;esf transitoria com saude bucal mi;37;AB
+38;ESFTRANSSB_M2;ESF TRANSITORIA COM SAUDE BUCAL MII;esftranssb_m2;esf transitoria com saude bucal mii;38;AB
+39;ESFRSB_MII;ESF RIBEIRINHA COM SAUDE BUCAL MII;esfrsb_mii;esf ribeirinha com saude bucal mii;39;AB
+40;ECR MI;EQUIPE DOS CONSULTORIOS NA RUA MODALIDADE I;ecr mi;equipe dos consultorios na rua modalidade i;40;AB
+41;ECR MII;EQUIPE DOS CONSULTORIOS NA RUA MODALIDADE II;ecr mii;equipe dos consultorios na rua modalidade ii;41;AB
+42;ECR MIII;EQUIPE DOS CONSULTORIOS NA RUA MODALIDADE III;ecr miii;equipe dos consultorios na rua modalidade iii;42;AB
+43;ESB MI;EQUIPE DE SAUDE BUCAL MODALIDADE I;esb mi;equipe de saude bucal modalidade i;43;AB
+44;ESB MII;EQUIPE DE SAUDE BUCAL MODALIDADE II;esb mii;equipe de saude bucal modalidade ii;44;AB
+45;NASF3;NUCLEO DE APOIO A SAUDE DA FAMILIA-NASF MODALIDADE 3;nasf3;nucleo de apoio a saude da familia-nasf modalidade 3;45;AB
+46;EMAD_T2;EQUIPE MULTIDISCIPLINAR ATENCAO DOMICILIAR TIPO 2;emad_t2;equipe multidisciplinar atencao domiciliar tipo 2;46;EMAD
+47;ECD;EQUIPE DE CUIDADOS DOMICILIARES;ecd;equipe de cuidados domiciliares;47;AB
+48;ESSE;EQUIPE EXCLUSIVA DE SAÚDE NA ESCOLA;eese;equipe exclusiva de saude na escola;48;AB
+52;EABP-II;EQUIPE DE ATENÇÃO BÁSICA PRISIONAL TIPO II;eabp-ii;equipe de atencao basica prisional tipo ii;52;AB
+7;NASF2;NUCLEO DE APOIO A SAUDE DA FAMILIA-NASF MODALIDADE 2;nasf2;nucleo de apoio a saude da familia-nasf modalidade 2;07;AB
+49;EAP;EQUIPE DE AVALIAÇÃO E ACOMPANHAMENTO DE MEDIDAS TERAPÊUTICAS APLICÁVEIS À PESSOA COM TRANSTORNO MENTAL EM CONFLITO COM A LEI;eap;equipe de avaliacao e acompanhamento de medidas terapeuticas aplicaveis a pessoa com transtorno mental em conflito com a lei;49;AB
+50;EABP-I;EQUIPE DE ATENÇÃO BÁSICA PRISIONAL TIPO I;eabp-i;equipe de atencao basica prisional tipo i;50;AB
+51;EABP-I COM SAÚDE MENTAL;EQUIPE DE ATENÇÃO BÁSICA PRISIONAL TIPO I COM SAÚDE MENTAL;eabp-i com saude mental;equipe de atencao basica prisional tipo i com saude mental;51;AB
+53;EABP-II COM SAÚDE MENTAL;EQUIPE DE ATENÇÃO BÁSICA PRISIONAL TIPO II COM SAÚDE MENTAL;eabp-ii com saude mental;equipe de atencao basica prisional tipo ii com saude mental;53;AB
+54;EABP-III;EQUIPE DE ATENÇÃO BÁSICA PRISIONAL TIPO III;eabp-iii;equipe de atencao basica prisional tipo iii;54;AB
+55;ESF;EQUIPE DE SAUDE DA FAMILIA;esf;equipe de saude da familia;70;AB
+56;ESF;EQUIPE DE SAUDE DA FAMILIA;esf;equipe de saude da familia;70;AB
+57;ESB;EQUIPE DE SAUDE BUCAL;esb;equipe de saude bucal;71;AB
+58;ESF;EQUIPE DE SAUDE DA FAMILIA;esf;equipe de saude da familia;70;AB
+59;ESB;EQUIPE DE SAUDE BUCAL;esb;equipe de saude bucal;71;AB
+60;ENASFAP;EQ DO NUCLEO AMPLIADO SAUDE DA FAMILIA E AT PRIMA.;enasfap;eq do nucleo ampliado saude da familia e at prima.;72;AB

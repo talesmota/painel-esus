@@ -1,0 +1,11 @@
+co_seq_equipe;nu_ine;st_ativo;co_unidade_saude;qt_referencia;tp_equipe;ds_area;no_equipe;no_equipe_filtro;co_unico_equipe
+1;0000127396;1;4;49;58;0003;ESF III - DR JOSE DE ANCHIETA;esf iii - dr jose de anchieta;ubs:3572102/equipe:0000127396
+2;0000127388;1;5;31;58;0002;ESF II - BENIGNA VILAR DE CARV;esf ii - benigna vilar de carv;ubs:3572099/equipe:0000127388
+3;0001566652;1;6;18;60;0001;NASF II;nasf ii;ubs:7638140/equipe:0001566652
+5;0001726048;1;4;2;59;0001;ESB-ESF III - DR JOSE DE ANCHI;esb-esf iii - dr jose de anchi;ubs:3572102/equipe:0001726048
+6;0001725939;1;9;2;59;0001;ESB-ESF I - DAMIANA CAMPOS BAR;esb-esf i - damiana campos bar;ubs:3572110/equipe:0001725939
+108;0001566652;1;4;0;60;0001;NASF II;nasf ii;ubs:3572102/equipe:0001566652
+4;0000127418;1;9;49;58;0001;ESF I - DAMIANA CAMPOS BARRETO;esf i - damiana campos barreto;ubs:3572110/equipe:0000127418
+56;0002264501;1;5;0;59;0001;ESB-ESF II - BENIGNA VILAR DE;esb-esf ii - benigna vilar de;ubs:3572099/equipe:0002264501
+106;0001566652;1;9;0;60;0001;NASF II;nasf ii;ubs:3572110/equipe:0001566652
+107;0001566652;1;5;0;60;0001;NASF II;nasf ii;ubs:3572099/equipe:0001566652
